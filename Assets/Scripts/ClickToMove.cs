@@ -4,13 +4,10 @@ using System.Collections;
 
 public class ClickToMove : MonoBehaviour
 {
-    public GameObject player;
-
-    public bool isWorking;
-
     public Coroutine MovePlayerCoroutine;
 
     private float distanceToPlayer;
+
     void Start()
     {
         
@@ -28,8 +25,6 @@ public class ClickToMove : MonoBehaviour
         distanceToPlayer = Vector2.Distance(currentMousePosition, transform.position);
 
         Debug.Log(distanceToPlayer);
-
-        isWorking = true;
 
         MovePlayerCoroutine = StartCoroutine(PlayerMovementUpdate());
     }
