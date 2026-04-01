@@ -24,8 +24,6 @@ public class ClickToMove : MonoBehaviour
 
         distanceToPlayer = Vector2.Distance(currentMousePosition, transform.position);
 
-        Debug.Log(distanceToPlayer);
-
         MovePlayerCoroutine = StartCoroutine(PlayerMovementUpdate());
     }
 
