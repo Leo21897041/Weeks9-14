@@ -49,11 +49,6 @@ public class Player : MonoBehaviour
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if (squeezeCoroutine != null)
-        {
-            StopCoroutine(SqueezeUpdate());
-        }
-
         Debug.Log(context);
 
         squeezeCoroutine = StartCoroutine(SqueezeUpdate());
@@ -80,11 +75,6 @@ public class Player : MonoBehaviour
 
     public void OnInteract()
     {
-        if (dashCoroutine != null)
-        {
-            StopCoroutine(dashCoroutine);
-        }
-
         dashCoroutine = StartCoroutine(DashUpdate());
     }
 
