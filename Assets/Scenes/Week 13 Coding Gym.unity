@@ -201,9 +201,9 @@ MonoBehaviour:
     m_ActionName: 'Player/Attack[/SwitchProControllerHID/buttonWest,/Mouse/leftButton,/Keyboard/enter]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 181527256}
-        m_TargetAssemblyTypeName: Movement, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 181527261}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnInteract
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -216,7 +216,19 @@ MonoBehaviour:
     m_ActionId: 852140f2-7766-474d-8707-702459ba45f3
     m_ActionName: 'Player/Interact[/Keyboard/e,/SwitchProControllerHID/buttonNorth]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 181527261}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 27c5f898-bc57-4ee1-8800-db469aca5fe3
     m_ActionName: 'Player/Crouch[/SwitchProControllerHID/buttonEast,/Keyboard/c]'
   - m_PersistentCalls:
@@ -366,6 +378,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6c562fd918b00d409f2dc52639d2f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  currentSpeed: 0
+  dashSpeed: 6
   speed: 3
   directionalInput: {x: 0, y: 0}
   squeezeCurve:
@@ -373,21 +387,21 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
-      inSlope: 1
-      outSlope: 1
+      value: 1
+      inSlope: -0.5
+      outSlope: -0.5
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 1
+      value: 0.5
+      inSlope: -0.5
+      outSlope: -0.5
       tangentMode: 34
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -396,7 +410,34 @@ MonoBehaviour:
   attackDuration: 3
   dashProgress: 0
   dashDuration: 2
-  dashSpeed: 3
+  isDash: 0
+  rotationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 360
+      outSlope: 360
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 360
+      inSlope: 360
+      outSlope: 360
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  hitRotation: {x: 0, y: 0, z: 0}
+  hitProgress: 0
+  hitDuration: 5
 --- !u!1 &1674793134
 GameObject:
   m_ObjectHideFlags: 0
