@@ -49,8 +49,10 @@ public class Player : MonoBehaviour
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if (isAttacking)    return;
-        if (squeezeCoroutine != null)   StopCoroutine(SqueezeUpdate());
+        if (squeezeCoroutine != null)
+        {
+            StopCoroutine(SqueezeUpdate());
+        }
 
         Debug.Log(context);
 
@@ -61,7 +63,6 @@ public class Player : MonoBehaviour
     {
         Vector3 currentScale = transform.localScale;        
         attackProgress = 0;
-        isAttacking = true;
 
         while (attackProgress < attackDuration)
         {
@@ -75,13 +76,14 @@ public class Player : MonoBehaviour
         }
 
         transform.localScale = currentScale;
-
-        isAttacking = false;
     }
 
     public void OnInteract()
     {
-        if (dashCoroutine != null)  StopCoroutine(dashCoroutine);
+        if (dashCoroutine != null)
+        {
+            StopCoroutine(dashCoroutine);
+        }
 
         dashCoroutine = StartCoroutine(DashUpdate());
     }
